@@ -35,5 +35,30 @@ namespace _211483.Models
                 MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
         }
+
+        public void Alterar()
+        {
+            try
+            {
+                Banco.AbrirConexao();
+
+                Banco.Comando = new MySqlCommand("UPDATE cidades SET nome=@nome, uf=@uf WHERE id=@id", Banco.Conexao);
+
+
+                Banco.Comando.Parameters.AddWithValue("@id", id);
+
+                Banco.Comando.Parameters.AddWithValue("@nome", nome);
+
+                Banco.Comando.Parameters.AddWithValue("@uf", uf);
+
+                Banco.Comando.ExecuteNonQuery();
+
+                Banco.FecharConexao();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
