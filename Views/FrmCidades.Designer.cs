@@ -34,16 +34,16 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtUF = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvCidades = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.btnIncluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnLixo = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCidades)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -98,13 +98,14 @@
             this.txtUF.Size = new System.Drawing.Size(62, 20);
             this.txtUF.TabIndex = 5;
             // 
-            // dataGridView1
+            // dgvCidades
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(418, 52);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(554, 386);
-            this.dataGridView1.TabIndex = 6;
+            this.dgvCidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCidades.Location = new System.Drawing.Point(418, 52);
+            this.dgvCidades.Name = "dgvCidades";
+            this.dgvCidades.Size = new System.Drawing.Size(554, 386);
+            this.dgvCidades.TabIndex = 6;
+            this.dgvCidades.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCidades_CellClick);
             // 
             // label4
             // 
@@ -116,13 +117,13 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Pesquisa:";
             // 
-            // textBox1
+            // txtPesquisa
             // 
-            this.textBox1.Location = new System.Drawing.Point(500, 20);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(319, 20);
-            this.textBox1.TabIndex = 8;
-            this.textBox1.Text = "Digite aqui o nome da cidade que deseja pesquisar...";
+            this.txtPesquisa.Location = new System.Drawing.Point(500, 20);
+            this.txtPesquisa.Name = "txtPesquisa";
+            this.txtPesquisa.Size = new System.Drawing.Size(319, 20);
+            this.txtPesquisa.TabIndex = 8;
+            this.txtPesquisa.Text = "Digite aqui o nome da cidade que deseja pesquisar...";
             // 
             // btnIncluir
             // 
@@ -133,6 +134,7 @@
             this.btnIncluir.TabIndex = 9;
             this.btnIncluir.Text = "➕ Incluir";
             this.btnIncluir.UseVisualStyleBackColor = true;
+            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
             // 
             // btnAlterar
             // 
@@ -143,6 +145,7 @@
             this.btnAlterar.TabIndex = 10;
             this.btnAlterar.Text = "🔄 Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnCancelar
             // 
@@ -153,6 +156,7 @@
             this.btnCancelar.TabIndex = 11;
             this.btnCancelar.Text = "↩️ Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnLixo
             // 
@@ -163,6 +167,7 @@
             this.btnLixo.TabIndex = 12;
             this.btnLixo.Text = "🗑️ Excluir";
             this.btnLixo.UseVisualStyleBackColor = true;
+            this.btnLixo.Click += new System.EventHandler(this.btnLixo_Click);
             // 
             // btnFechar
             // 
@@ -184,6 +189,7 @@
             this.btnExcluir.TabIndex = 14;
             this.btnExcluir.Text = "🔎";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // FrmCidades
             // 
@@ -197,9 +203,9 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnIncluir);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPesquisa);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvCidades);
             this.Controls.Add(this.txtUF);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtNome);
@@ -209,7 +215,8 @@
             this.Name = "FrmCidades";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastros De Cidade";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.FrmCidades_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCidades)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,9 +230,9 @@
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtUF;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvCidades;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.Button btnIncluir;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnCancelar;

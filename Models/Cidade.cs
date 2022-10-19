@@ -60,5 +60,51 @@ namespace _211483.Models
                 MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public void Excluir()
+        {
+            try
+            {
+                Banco.AbrirConexao();
+
+                Banco.Comando = new MySqlCommand("DELETE FROM cidades WHERE id=@id", Banco.Conexao);
+
+                Banco.Comando.Parameters.AddWithValue("@id", id);
+
+                Banco.Comando.ExecuteNonQuery();
+
+                Banco.FecharConexao();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public DataTable Consultar()
+        {
+            try
+            {
+                Banco.AbrirConexao();
+
+                Banco.Comando = new MySqlCommand("SELECT * FROM cidades WHERE nome LIKE @nome ORDER BY nome", Banco.Conexao);
+
+                Banco.Comando.Parameters.AddWithValue("@nome", nome + "%");
+
+                Banco.Adaptador = new MySqlDataAdapter(Banco.Comando);
+                Banco.datTabela = new DataTable();
+                Banco.Adaptador.Fill(Banco.datTabela);
+                Banco.FecharConexao();
+                return Banco.datTabela;
+
+                //Banco.Comando.ExecuteNonQuery();
+    
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
     }
 }
