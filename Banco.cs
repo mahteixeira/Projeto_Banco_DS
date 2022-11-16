@@ -53,8 +53,18 @@ namespace _211483
 
                 Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS Cidades " +
                                             "(id integer auto_increment primary key," +
-                                            "nome char(40)," +
+                                            "marca char(40)," +
                                             "uf char(02))", Conexao);
+                Comando.ExecuteNonQuery();
+
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS Marcas " +
+                                            "(id integer auto_increment primary key," +
+                                            "marca char(100))", Conexao);
+                Comando.ExecuteNonQuery();
+
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS Categorias " +
+                                            "(id integer auto_increment primary key," +
+                                            "categoria char(100))", Conexao);
                 Comando.ExecuteNonQuery();
 
                 FecharConexao();

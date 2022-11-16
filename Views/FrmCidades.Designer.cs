@@ -123,7 +123,7 @@
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(319, 20);
             this.txtPesquisa.TabIndex = 8;
-            this.txtPesquisa.Text = "Digite aqui o nome da cidade que deseja pesquisar...";
+            this.txtPesquisa.Text = "Digite aqui o categoria da marcas que deseja pesquisar...";
             // 
             // btnIncluir
             // 

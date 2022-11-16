@@ -28,5 +28,17 @@ namespace _211483
             FrmCidades form = new FrmCidades();
             form.Show();
         }
+
+        private void categoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCategoria form = new FrmCategoria();
+            form.Show();
+        }
+
+        private void marcaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmMarca form = new FrmMarca();
+            form.Show();
+        }
     }
 }

@@ -68,7 +68,7 @@ namespace _211483.Views
             if (dgvCidades.RowCount > 0)
             {
                 txtID.Text = dgvCidades.CurrentRow.Cells["id"].Value.ToString();
-                txtNome.Text = dgvCidades.CurrentRow.Cells["nome"].Value.ToString();
+                txtNome.Text = dgvCidades.CurrentRow.Cells["marca"].Value.ToString();
                 txtUF.Text = dgvCidades.CurrentRow.Cells["uf"].Value.ToString();
             }
         }
