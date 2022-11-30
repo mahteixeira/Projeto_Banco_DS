@@ -40,5 +40,11 @@ namespace _211483
             FrmMarca form = new FrmMarca();
             form.Show();
         }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmClientes form = new FrmClientes();
+            form.Show();
+        }
     }
 }

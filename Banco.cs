@@ -67,6 +67,17 @@ namespace _211483
                                             "categoria char(100))", Conexao);
                 Comando.ExecuteNonQuery();
 
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS Clientes" +
+                                          "(id int auto_increment primary key, " +
+                                          "nome char(40), " +
+                                          "idCidade int, " +
+                                          "dataNasc date, " +
+                                          "renda decimal(10,2), " +
+                                          "cpf char(14), " +
+                                          "foto varchar(100), " +
+                                          "venda boolean)", Conexao);
+                Comando.ExecuteNonQuery();
+
                 FecharConexao();
             }
             catch (Exception e)
